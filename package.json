@@ -1,5 +1,5 @@
 {
-  "name": "unsocialmedia",
+  "name": "syt-backend",
   "private": true,
   "version": "0.0.0",
   "engines": {
@@ -13,7 +13,10 @@
     "heroku-postbuild": "cd client && npm install && npm run build"
   },
   "dependencies": {
+    "@aws-amplify/ui-react": "^5.0.6",
     "nodemon": "^2.0.15",
+    "@fortawesome/fontawesome-free": "^6.4.2",
+    "aws-amplify": "^5.3.5",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
