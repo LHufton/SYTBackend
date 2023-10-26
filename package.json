@@ -12,6 +12,7 @@
     "start": "node server.js"
   },
   "dependencies": {
+    "bcrypt": "^5.1.1",
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
     "dotenv": "^16.3.1",
@@ -20,7 +21,6 @@
     "mongoose": "^7.3.2",
     "morgan": "^1.10.0"
   },
-  "devDependencies": {},
   "main": "server.js",
   "keywords": [],
   "author": "",
