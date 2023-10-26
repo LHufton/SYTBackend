@@ -8,9 +8,10 @@
   },
   "scripts": {
     "dev": "watch server.js",
-    "build": "cd client && vite build",
+    "build": "echo 'No build step for backend'",
     "start": "node server.js"
-  },
+},
+
   "dependencies": {
     "bcryptjs": "^2.4.3",
     "cors": "^2.8.5",
