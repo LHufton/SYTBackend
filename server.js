@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
@@ -11,14 +12,13 @@ const FeedRouter = require('./routes/FeedRouter')
 
 const PORT = process.env.PORT || 3001
 
-// MongoDB connection
-const MONGODB_URI =
-  process.env.MONGODB_URI ||
-  'MONGODB_URI=mongodb+srv://ProPip23:KimberDB00@propip23.syftxjr.mongodb.net/backend?retryWrites=true&w=majority'
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true
-})
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true
+  })
+  .then(() => console.log('MongoDB successfully connected'))
+  .catch((err) => console.error('MongoDB connection error: ', err))
 
 const app = express()
 
