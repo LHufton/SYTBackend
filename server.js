@@ -14,7 +14,7 @@ const PORT = process.env.PORT || 3001
 // MongoDB connection
 const MONGODB_URI =
   process.env.MONGODB_URI ||
-  'mongodb+srv://username:password@cluster0.mongodb.net/mydatabase?retryWrites=true&w=majority'
+  'MONGODB_URI=mongodb+srv://ProPip23:KimberDB00@propip23.syftxjr.mongodb.net/backend?retryWrites=true&w=majority'
 mongoose.connect(MONGODB_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true
