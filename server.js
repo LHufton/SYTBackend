@@ -2,6 +2,17 @@ require('dotenv').config()
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
+const corsOptions = {
+  origin: [
+    'http://localhost:5173',
+    'https://syt-frontend-1-687106a3c54f.herokuapp.com/'
+  ],
+  optionsSuccessStatus: 200,
+  credentials: true
+}
+
+app.use(cors(corsOptions))
+
 const path = require('path')
 const mongoose = require('mongoose')
 
