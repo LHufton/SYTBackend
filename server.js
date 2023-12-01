@@ -2,6 +2,17 @@ require('dotenv').config()
 const express = require('express')
 const logger = require('morgan')
 const cors = require('cors')
+const path = require('path')
+const mongoose = require('mongoose')
+
+const AuthRouter = require('./routes/AuthRouter')
+const CommentRouter = require('./routes/CommentRouter')
+const PostRouter = require('./routes/PostRouter')
+const FeedRouter = require('./routes/FeedRouter')
+
+const app = express()
+const PORT = process.env.PORT || 3001
+
 const corsOptions = {
   origin: [
     'http://localhost:5173',
@@ -12,16 +23,9 @@ const corsOptions = {
 }
 
 app.use(cors(corsOptions))
-
-const path = require('path')
-const mongoose = require('mongoose')
-
-const AuthRouter = require('./routes/AuthRouter')
-const CommentRouter = require('./routes/CommentRouter')
-const PostRouter = require('./routes/PostRouter')
-const FeedRouter = require('./routes/FeedRouter')
-
-const PORT = process.env.PORT || 3001
+app.use(logger('tiny'))
+app.use(express.json())
+app.use(express.urlencoded({ extended: false }))
 
 mongoose
   .connect(process.env.MONGODB_URI, {
@@ -30,13 +34,6 @@ mongoose
   })
   .then(() => console.log('MongoDB successfully connected'))
   .catch((err) => console.error('MongoDB connection error: ', err))
-
-const app = express()
-
-app.use(cors())
-app.use(logger('tiny'))
-app.use(express.json())
-app.use(express.urlencoded({ extended: false }))
 
 app.use('/auth', AuthRouter)
 app.use('/comments', CommentRouter)

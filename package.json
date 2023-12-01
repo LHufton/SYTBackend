@@ -7,7 +7,7 @@
     "npm": "9.8.1"
   },
   "scripts": {
-    "dev": "watch server.js",
+    "dev": "nodemon server.js",  
     "build": "echo 'No build step for backend'",
     "start": "node server.js"
   },
@@ -25,5 +25,8 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "nodemon": "^3.0.1"
+  }
 }
