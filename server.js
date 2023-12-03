@@ -6,7 +6,7 @@ const path = require('path')
 const mongoose = require('mongoose')
 
 const AuthRouter = require('./routes/AuthRouter')
-const CommentRouter = require('./routes/CommentRouter')
+const CommentRouter = require('./routes/CommentsRouter')
 const PostRouter = require('./routes/PostRouter')
 const FeedRouter = require('./routes/FeedRouter')
 
