@@ -1,6 +1,8 @@
-const router = require('express').Router()
-const controller = require('../controllers/CommentsController')
-const middleware = require('../middleware')
+import { Router } from 'express'
+import * as controller from '../controllers/CommentsController.js'
+import * as middleware from '../middleware/index.js'
+
+const router = Router()
 
 router.get('/', controller.GetComments)
 router.post(
@@ -22,4 +24,4 @@ router.delete(
   controller.DeleteComment
 )
 
-module.exports = router
+export default router

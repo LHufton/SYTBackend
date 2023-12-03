@@ -1,6 +1,8 @@
-const router = require('express').Router()
-const controller = require('../controllers/AuthController')
-const middleware = require('../middleware')
+import { Router } from 'express'
+import * as controller from '../controllers/AuthController.js'
+import * as middleware from '../middleware/index.js'
+
+const router = Router()
 
 router.post('/login', controller.Login)
 router.post('/register', controller.Register)
@@ -17,4 +19,4 @@ router.get(
   controller.CheckSession
 )
 
-module.exports = router
+export default router

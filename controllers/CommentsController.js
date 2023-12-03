@@ -1,6 +1,6 @@
-const { Comment } = require('../models')
+import Comment from '../models/Comment.js'
 
-const GetComments = async (req, res) => {
+export const GetComments = async (req, res) => {
   try {
     const comments = await Comment.find({})
     res.send(comments)
@@ -9,7 +9,7 @@ const GetComments = async (req, res) => {
   }
 }
 
-const CreateComment = async (req, res) => {
+export const CreateComment = async (req, res) => {
   try {
     const comment = await Comment.create({ ...req.body })
     res.send(comment)
@@ -18,7 +18,7 @@ const CreateComment = async (req, res) => {
   }
 }
 
-const UpdateComment = async (req, res) => {
+export const UpdateComment = async (req, res) => {
   try {
     const comment = await Comment.findByIdAndUpdate(
       req.params.comment_id,
@@ -33,7 +33,7 @@ const UpdateComment = async (req, res) => {
   }
 }
 
-const DeleteComment = async (req, res) => {
+export const DeleteComment = async (req, res) => {
   try {
     await Comment.deleteOne({ _id: req.params.comment_id })
     res.send({
@@ -44,11 +44,4 @@ const DeleteComment = async (req, res) => {
   } catch (error) {
     throw error
   }
-}
-
-module.exports = {
-  GetComments,
-  CreateComment,
-  UpdateComment,
-  DeleteComment
 }

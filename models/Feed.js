@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+import { Schema } from 'mongoose'
 
 const feedSchema = new Schema(
   {
@@ -11,6 +11,4 @@ const feedSchema = new Schema(
   { timestamps: true }
 )
 
-// const Feed = model('Feed', feedSchema)
-
-module.exports = feedSchema
+export default feedSchema

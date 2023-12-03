@@ -1,6 +1,6 @@
-const { Post } = require('../models/Post')
+import Post from '../models/Post.js'
 
-const GetPosts = async (req, res) => {
+export const GetPosts = async (req, res) => {
   try {
     const posts = await Post.find({})
     res.send(posts)
@@ -9,7 +9,7 @@ const GetPosts = async (req, res) => {
   }
 }
 
-const CreatePost = async (req, res) => {
+export const CreatePost = async (req, res) => {
   try {
     const post = await Post.create({ ...req.body })
     res.send(post)
@@ -18,7 +18,7 @@ const CreatePost = async (req, res) => {
   }
 }
 
-const UpdatePost = async (req, res) => {
+export const UpdatePost = async (req, res) => {
   try {
     console.log(req.body)
     const post = await Post.findByIdAndUpdate(req.params.post_id, req.body, {
@@ -31,18 +31,11 @@ const UpdatePost = async (req, res) => {
   }
 }
 
-const DeletePost = async (req, res) => {
+export const DeletePost = async (req, res) => {
   try {
     await Post.deleteOne({ _id: req.params.post_id })
     res.send({ msg: 'Post Deleted', payload: req.params.post_id, status: 'Ok' })
   } catch (error) {
     throw error
   }
-}
-
-module.exports = {
-  GetPosts,
-  CreatePost,
-  UpdatePost,
-  DeletePost
 }

@@ -1,8 +1,8 @@
-const express = require('express')
-const router = express.Router()
-const feedControl = require('../controllers/FeedController')
+import { Router } from 'express'
+import * as controller from '../controllers/FeedController.js'
 
-// Route to get the feed
-router.get('/', feedControl.getFeed)
+const router = Router()
 
-module.exports = router
+router.get('/', controller.getFeed)
+
+export default router

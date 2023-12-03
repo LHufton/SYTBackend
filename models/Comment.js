@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+import { Schema } from 'mongoose'
 
 const commentSchema = new Schema(
   {
@@ -8,4 +8,4 @@ const commentSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = commentSchema
+export default commentSchema

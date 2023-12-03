@@ -1,13 +1,14 @@
 {
   "name": "syt-backend",
   "private": true,
+  "type": "module",
   "version": "0.0.0",
   "engines": {
     "node": "18.18.2",
     "npm": "9.8.1"
   },
   "scripts": {
-    "dev": "nodemon server.js",  
+    "dev": "nodemon server.js",
     "build": "echo 'No build step for backend'",
     "start": "node server.js"
   },

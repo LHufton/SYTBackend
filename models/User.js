@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+import { Schema, model } from 'mongoose'
 
 const userSchema = new Schema(
   {
@@ -9,4 +9,6 @@ const userSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = userSchema
+const User = model('User', userSchema)
+
+export default User

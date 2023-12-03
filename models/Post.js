@@ -1,4 +1,4 @@
-const { Schema } = require('mongoose')
+import { Schema } from 'mongoose'
 
 const postSchema = new Schema(
   {
@@ -11,4 +11,4 @@ const postSchema = new Schema(
   { timestamps: true }
 )
 
-module.exports = postSchema
+export default postSchema

@@ -1,21 +1,22 @@
-require('dotenv').config()
-const express = require('express')
-const logger = require('morgan')
-const cors = require('cors')
-const path = require('path')
-const mongoose = require('mongoose')
+import dotenv from 'dotenv'
+import express from 'express'
+import logger from 'morgan'
+import cors from 'cors'
+import mongoose from 'mongoose'
 
-const AuthRouter = require('./routes/AuthRouter')
-const CommentRouter = require('./routes/CommentsRouter')
-const PostRouter = require('./routes/PostRouter')
-const FeedRouter = require('./routes/FeedRouter')
+import AuthRouter from './routes/AuthRouter.js'
+import CommentRouter from './routes/CommentsRouter.js'
+import PostRouter from './routes/PostRouter.js'
+import FeedRouter from './routes/FeedRouter.js'
+
+dotenv.config()
 
 const app = express()
 const PORT = process.env.PORT || 3001
 
 const corsOptions = {
   origin: [
-    'http://localhost:5173',
+    'http://localhost:5173', // Add your frontend development server URL
     'https://syt-frontend-1-687106a3c54f.herokuapp.com/'
   ],
   optionsSuccessStatus: 200,
@@ -40,17 +41,8 @@ app.use('/comments', CommentRouter)
 app.use('/posts', PostRouter)
 app.use('/feed', FeedRouter)
 
-app.use(express.static(path.join(__dirname, 'client', 'dist')))
-
-app.get('*', (req, res) => {
-  res.sendFile(path.join(__dirname, 'client', 'dist', 'index.html'))
-})
-
 app.listen(PORT, () => {
   console.log(`Running Express server on Port ${PORT} . . .`)
 })
 
-app.use((err, req, res, next) => {
-  console.error(err.stack)
-  res.status(500).send('Oops! Something broke!')
-})
+export default app // Export the app instance to use in other scripts
